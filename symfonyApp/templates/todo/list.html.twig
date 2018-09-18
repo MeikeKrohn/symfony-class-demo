@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link href="{{ asset('css/list.css') }}" rel="stylesheet" />
+{% endblock %}
+
+{% block body %}
+
+    <h1>Todo List</h1>
+
+    <div>
+        <table>
+            <thead>
+            <tr>
+                <th>Status</th>
+                <th>Description</th>
+                <th>Due date</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for item in listData %}
+                <tr>
+                    {% if item.isDone %}
+                        <td>&#10003</td>
+                        {% else %}
+                        <td>&#10063</td>
+                    {% endif %}
+
+                    <td>{{ item.description }}</td>
+                    <td>{{ item.dueDate | date('d.m.y') }}</td>
+                    <td>
+                        <a href="{{ path('viewTodoItem', {'itemId': item.id}) }}">Details</a>
+                        <button data-id="{{ item.id }}" class="deleteButton">&#10005</button>
+                        <button data-id="{{ item.id }}" class="isDoneButton">(un)do</button>
+
+                    </td>
+                    </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div>
+        <hr>
+        <h3>Add new Items</h3>
+        <p>
+            {{ form_start(newItemForm) }}
+            {{ form_widget(newItemForm) }}
+            {{ form_end(newItemForm) }}
+        </p>
+    </div>
+
+    <div>
+        <a href="{{ path('logout') }}" >Logout</a>
+    </div>
+
+{% endblock %}

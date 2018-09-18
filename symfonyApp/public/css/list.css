@@ -1,0 +1,26 @@
+h1
+{
+    color: #5eb5e0;
+}
+
+th
+{
+    color: #5eb5e0;
+}
+
+.isDoneButton
+{
+    background-color: #5eb5e0;
+    color: white;
+}
+
+.deleteButton
+{
+    background-color: #AA3333;
+    color: white;
+}
+
+a
+{
+    color: black;
+}

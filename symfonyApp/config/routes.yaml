@@ -1,0 +1,27 @@
+index:
+  path: /
+  controller: App\Controller\DefaultController::index
+
+todoList:
+  path: /todoList
+  controller: App\Controller\TodoController::todoList
+
+viewTodoItem:
+  path: /todoList/item/{itemId}
+  controller: App\Controller\TodoController::viewItem
+
+deleteTodoItem:
+  path: /todoList/deleteItem/{itemId}
+  controller: App\Controller\TodoController::deleteItem
+  methods: [DELETE]
+
+markAsDoneItem:
+  path: /todoList/doneItem/{itemId}
+  controller: App\Controller\TodoController:markAsDoneItem
+  methods: [POST]
+
+login:
+  path: /login
+
+logout:
+  path: /logout

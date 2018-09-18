@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <p>
+        <a href="{{ path('todoList') }}">go back</a>
+    </p>
+    <p>
+        Description: {{ itemData.description }}
+    </p>
+    <p>
+        Due Date: {{ itemData.dueDate | date('d.m.y')}}
+    </p>
+    <p>
+        Completed: {{ itemData.isDone }}
+    </p>
+
+    <div>
+        {{ form_start(editForm) }}
+        {{ form_widget(editForm) }}
+        {{ form_end(editForm) }}
+    </div>
+
+{% endblock %}
